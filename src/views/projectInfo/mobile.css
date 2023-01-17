@@ -1,0 +1,29 @@
+@media only screen and (max-width: 780px) {
+  .projectInfo {
+    background: linear-gradient(180deg, #a1c4fd, #c2e9fb);
+    padding-top: 5.6vw !important;
+  }
+  body .projectInfo .page-head {
+    height: 30px;
+    position: relative;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+    display: block;
+  }
+  .page-head .back {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 27px;
+    width: 20px;
+    height: 20px;
+  }
+
+  body .projectInfo .textMain {
+    width: 90.9vw !important;
+    margin-top: 8.5vw;
+  }
+}

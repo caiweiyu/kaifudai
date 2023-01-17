@@ -1,0 +1,371 @@
+@media only screen and (max-width: 780px) {
+  html body #gameFi {
+    width: 100vw;
+    height: 216vw;
+    min-width: 375px;
+    min-height: 812px;
+    background-size: 100% 100%;
+    background-image: url(../../assets/images/game/m-bg1.png);
+  }
+  .bg1 {
+    background-image: url(../../assets/images/game/m-bg1.png) !important;
+  }
+  .bg2 {
+    background-image: url(../../assets/images/game/m-bg2.png) !important;
+  }
+  .bg3 {
+    background-image: url(../../assets/images/game/m-bg3.png) !important;
+  }
+  #gameFi .fish-gif1 {
+    position: absolute;
+    left: 44%;
+    top: 66%;
+    width: 100px;
+  }
+  #gameFi .fish-gif2 {
+    position: absolute;
+    left: 22%;
+    top: 64%;
+    width: 185px;
+  }
+  #gameFi .fish-gif3 {
+    position: absolute;
+    left: 15%;
+    top: 52%;
+    width: 200px;
+  }
+  body #gameFi .head {
+    width: 100vw;
+    height: 46vw;
+    background-image: url(../../assets/images/game/m-GameHead.png);
+    flex-direction: column;
+  }
+  body #gameFi .head .head_left {
+    width: 100vw;
+    height: 10vw;
+    flex: auto;
+    color: #fff;
+  }
+  body #gameFi .head .head_left .headImg {
+    width: 12vw;
+    height: 12vw;
+    margin: 0 3.1vw 0 18vw;
+  }
+  #gameFi .head .head_left .balance p {
+    font-weight: 800;
+    font-size: 6vw;
+  }
+  #gameFi .head .head_left .balance span {
+    margin-top: 0.5vw;
+    font-size: 2.5vw;
+  }
+  body #gameFi .head .head_right {
+    width: 100%;
+    height: 45%;
+    padding: 1vw 2vw;
+    box-sizing: border-box;
+  }
+  body #gameFi .head .head_right .fishItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  #gameFi .head .head_right .fishItem p {
+    font-size: 4.6vw;
+  }
+  #gameFi .head .head_right .fishItem span {
+    font-size: 2.8vw;
+    margin-top: 2.8vw;
+  }
+  #gameFi .head .backHome {
+    width: 20.3vw;
+    height: 7.6vw;
+    top: auto;
+    bottom: -13vw;
+    left: 4.3vw;
+  }
+  #gameFi .head .pledge {
+    width: 20.3vw;
+    height: 7.6vw;
+    top: auto;
+    bottom: -13vw;
+    right: 4.3vw;
+  }
+  #gameFi .materials {
+    width: 87vw;
+    height: 20vw;
+    min-width: 326px;
+    min-height: 75px;
+    position: fixed;
+    bottom: 10.1vw;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+  }
+  #gameFi .materials .item {
+    min-width: 50px;
+    width: 13.34vw;
+    height: 100%;
+    background-size: 100% 100%;
+    cursor: pointer;
+  }
+  #gameFi .materials .item:hover {
+    transform: scale(1.1);
+  }
+  #gameFi .yumiao {
+    background-image: url("../../assets/images/game/yumiao.png");
+  }
+  #gameFi .siliao {
+    background-image: url("../../assets/images/game/siliao.png");
+  }
+  #gameFi .yuci {
+    background-image: url("../../assets/images/game/yuci.png");
+  }
+  #gameFi .yangqi {
+    background-image: url("../../assets/images/game/yangqi.png");
+  }
+  #gameFi .cangku {
+    background-image: url("../../assets/images/game/cangku.png");
+  }
+  .game-content .dialog .entrepot-wrap {
+    width: 340px;
+    height: 604px;
+    background: url("../../assets/images/game/m-dialog-bg.png");
+    background-size: 100% 100%;
+    padding: 41px 50px;
+    display: flex;
+    box-sizing: border-box;
+    position: relative;
+  }
+  .game-content .dialog .tab-wrap {
+    width: 240px;
+    height: 36px;
+    background: #ffecec;
+    z-index: 999;
+    position: absolute;
+    top: 97px;
+    left: 50px;
+    overflow: scroll;
+    scrollbar-width: none;
+  }
+  .game-content .dialog .tab-wrap::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+  }
+  .game-content .dialog .tab-wrap ul {
+    width: auto;
+    display: flex;
+  }
+  .game-content .dialog .tab-wrap ul .item {
+    width: 70px;
+    height: 36px;
+    font-size: 14px;
+    font-family: Source Han Sans CN;
+    font-weight: bold;
+    color: #bb1311;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  .game-content .dialog .active {
+    background: #fff;
+  }
+  .game-content .dialog .entrepot-content {
+    height: auto;
+    position: relative;
+    flex: 1;
+  }
+  .game-content .dialog .entrepot-content .close-btn {
+    width: 30px;
+    height: 30px;
+    background: url("../../assets/images/game/close.png");
+    background-size: 100% 100%;
+    position: absolute;
+    right: -6px;
+    top: -6px;
+  }
+  .game-content .dialog .entrepot-content .title {
+    font-family: PangMenZhengDao-Cu;
+    font-size: 24px;
+    font-weight: 400;
+    color: #bb1311;
+    height: 57px;
+    text-align: center;
+    line-height: 57px;
+    padding: 0;
+    background: #ffecec;
+    width: 240px;
+  }
+  .game-content .dialog .close-btn:hover {
+    transform: scale(1.1);
+  }
+  .game-content .dialog .hidden-scroll {
+    width: auto;
+    overflow: hidden;
+    padding-top: 38px;
+  }
+  .game-content .dialog .hidden-scroll .material-empty {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    color: #844d15;
+  }
+  .game-content .dialog .material-empty img {
+    width: 96px;
+    height: 89px;
+    margin-bottom: 15px;
+    margin-left: -10px;
+  }
+  .game-content .dialog .entrepot-material {
+    width: auto;
+    padding: 10px 0px 20px 10px;
+    height: 427px;
+    overflow-y: auto;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    color: #844d15;
+    scrollbar-width: none;
+  }
+  .game-content .dialog .entrepot-material::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+  }
+  .game-content .dialog .entrepot-material .material-item {
+    width: 218px;
+    border: 1px solid #844d15;
+    border-radius: 12px;
+    box-sizing: border-box;
+    display: flex;
+    margin-bottom: 12px;
+    padding: 8px 8px 2px 8px;
+  }
+  .game-content .dialog .entrepot-material .material-item:nth-of-type(3n) {
+    margin-right: 0;
+  }
+  .game-content .dialog .entrepot-material .items {
+    box-sizing: border-box;
+  }
+  .game-content .dialog .entrepot-material-plus {
+    width: auto;
+    display: flex;
+    justify-content: center;
+    padding-right: 0;
+  }
+  .game-content .dialog .entrepot-material-plus .items {
+    padding-left: 0;
+    width: auto;
+  }
+  .game-content .dialog .entrepot-wrap-plus .title {
+    background: #fff;
+  }
+  .game-content .dialog .hidden-scroll-plus {
+    width: auto;
+    padding-top: 0px;
+  }
+  .game-content .dialog .material-item .left {
+    width: 68px;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+  }
+  .game-content .dialog .material-item .left .material-bg {
+    width: 68px;
+    height: 77px;
+    background: url("../../assets/images/game/materialBg.png");
+    background-size: 100% 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .game-content .dialog .material-bg img {
+    width: 37px;
+  }
+  .game-content .dialog .material-item .left .money {
+    font-size: 18px;
+    font-family: Source Han Sans CN;
+    font-weight: 800;
+    color: #844d15;
+    line-height: 30px;
+    margin-top: 10px;
+  }
+  .game-content .dialog .material-item .right {
+    display: flex;
+    flex-flow: column;
+    flex: 1;
+    margin-left: 5px;
+  }
+  .game-content .dialog .material-item .right .name {
+    font-size: 16px;
+    font-family: Source Han Sans CN;
+    font-weight: bold;
+    color: #844d15;
+    margin-bottom: 4px;
+  }
+  .game-content .dialog .material-item .right .counter {
+    height: 20px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .game-content .dialog .right .counter img {
+    width: 20px;
+    height: 20px;
+  }
+  .game-content .dialog .right .counter input {
+    width: 50px;
+    height: 20px;
+    font-size: 12px;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    color: #844d15;
+    text-align: center;
+    flex: 0;
+  }
+  .game-content .dialog .material-item .right .effect {
+    height: auto;
+    min-height: 28px;
+    padding-right: 8px;
+    font-size: 13px;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    color: #bcaa82;
+    line-height: 18px;
+  }
+  .game-content .dialog .right .quantity {
+    margin: 0;
+    font-size: 14px;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    color: #844d15;
+  }
+  .game-content .dialog .right .config-button {
+    width: 91px;
+    height: 30px;
+    background: url("../../assets/images/game/button1.png");
+    background-size: 100% 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    color: #844d15;
+    cursor: pointer;
+    user-select: none;
+    align-self: flex-end;
+    margin-top: 8px;
+  }
+  .game-content .dialog .right .config-button:active,
+  .game-content .dialog .right .counter img:active {
+    transform: scale(0.99);
+  }
+}

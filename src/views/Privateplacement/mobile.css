@@ -1,0 +1,94 @@
+@media only screen and (max-width: 768px) {
+.PrivateEquityBox{
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.SMcontent_Boxleft{
+   
+  padding-bottom: 12px;
+}
+.SMcontent_Boxright{
+  padding-top: 12px;
+}
+.SMDataContentGo{
+  /* height: 468px; */
+  padding-left: 32px;
+  padding-right: 32px;
+  background: #FFFFFF;
+  border-radius: 12px;
+}
+.raiseclass{
+  height:80px;
+  border-bottom:1px solid #EEEEEE;
+  /* background: aqua; */
+}
+.raiseclass li{
+  text-align: center;
+
+}
+.raiseclass li:nth-child(1){
+  font-size: 12px;
+  font-family: Microsoft YaHei;
+  font-weight: 400;
+  color: #333333;
+  padding-top: 17px;
+}
+.raiseclass li:nth-child(2){
+  font-size: 24px;
+  font-family: Microsoft YaHei;
+  font-weight: bold;
+  color: #1A63DA;
+}
+.SM_topbox{
+  /* height: 92px; */
+  padding-left: 20px;
+  padding-right: 17px;
+background: #FFFFFF;
+border-radius: 8px;
+padding-bottom: 20px;
+}
+.SM_topboxLi{
+  float: left;
+}
+.SM_topboxLi li:nth-child(1){
+  font-size: 12px;
+font-family: Microsoft YaHei;
+font-weight: 400;
+color: #333333;
+padding-top: 18px;
+}
+.SM_topboxLi li:nth-child(2){
+  font-size: 18px;
+font-family: Microsoft YaHei;
+font-weight: bold;
+color: #333333;
+padding-top: 18px;
+}
+.SM_topButton{
+  height: 32px;
+  width: 96px;
+background: linear-gradient(180deg, #A1C4FD, #CEEDFC);
+border-radius: 16px;
+float: right;
+margin-top: 40px;
+}
+.SM_topButton li{
+  font-size: 14px;
+font-family: Microsoft YaHei;
+font-weight: bold;
+color: #1A63DA;
+text-align: center;
+line-height: 32px;
+
+}
+.matopbju{
+  height: 96px;
+  margin-top: 20px;
+}
+
+
+
+
+
+
+}

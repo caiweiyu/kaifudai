@@ -1,0 +1,130 @@
+@media only screen and (max-width: 780px) {
+  body .layout {
+    display: block !important;
+  }
+
+  body .layout .sidebar {
+    /* display: none; */
+    display: flex;
+    width: 100%;
+    height: 16vw;
+    border-bottom: 1px solid #000;
+    overflow: hidden;
+    align-items: center;
+    justify-content: space-between;
+    background: none;
+  }
+
+  body .layout .sidebar .projectName {
+    margin: 0;
+    font-size: 7vw;
+    margin-left: 4.2vw;
+    color: #fff;
+  }
+
+  body .layout .nav {
+    display: none;
+  }
+
+  body .layout .sidebar .openNavBtn {
+    display: block;
+    width: 7vw;
+    height: 6vw;
+    margin-right: 21px;
+  }
+
+  html body .mobile-routerBox {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+  }
+
+  body .mobile-routerBox .routerBox {
+    position: absolute;
+    right: 0;
+    width: 78.4vw;
+    height: 100%;
+    background: linear-gradient(180deg, #ffffff, #c2e9fb);
+    display: flex;
+    flex-direction: column;
+    transition: all 1s;
+  }
+
+  body .mobile-routerBox .routerBox .routerItem {
+    width: 100%;
+    height: 12.2vw;
+    margin-bottom: 1vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  body .mobile-routerBox .routerBox .routerItem > div {
+    display: flex;
+    align-items: center;
+    margin-left: 7.2vw;
+  }
+
+  body .mobile-routerBox .routerBox .routerItem > div > img {
+    width: 4.8vw;
+    height: 4.8vw;
+  }
+
+  body .mobile-routerBox .routerBox .routerItem > div > span {
+    font-size: 3.7vw;
+    margin-left: 2.9vw;
+    color: #000;
+  }
+
+  body .mobile-routerBox .routerBox .routerItem .rightIcon {
+    width: 2.1vw;
+    height: 3.7vw;
+    margin-right: 6.4vw;
+  }
+  .layout main {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  .layout main .layout-head {
+    display: none !important;
+  }
+
+  body .layout .Registerpopup {
+    width: 74vw;
+    height: 63.7vw;
+    padding: 6.4vw;
+    padding-bottom: 0;
+  }
+
+  body .layout .registerTitle {
+    font-size: 4.8vw;
+  }
+
+  body .layout .Registerpopup .lable {
+    font-size: 3.7vw;
+    margin-top: 12vw;
+  }
+
+  body .layout .Registerpopup input {
+    margin-top: 5vw;
+    font-size: 4.26vw;
+  }
+
+  body .layout .Registerpopup .btns {
+    margin-top: 10vw;
+  }
+
+  .Registerpopup .btn {
+    width: 26.6vw;
+    height: 8.5vw;
+    line-height: 8.5vw;
+    border-radius: 1.6vw;
+    font-size: 3.7vw;
+  }
+}

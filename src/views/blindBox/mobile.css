@@ -1,0 +1,68 @@
+@media only screen and (max-width: 780px) {
+  body .blindBox {
+    width: 100vw;
+    padding:  4.2vw !important;
+    box-sizing: border-box;
+    background: #1d2329;
+  }
+  body .blindBox .topImg {
+    width: 91.4vw;
+    height: 68.8vw;
+    border-radius: 24px;
+    background-image: url(../../assets/images/blindBoxBanner2.png);
+    margin-bottom: 3vw;
+  }
+  body .blindBox  .blindBoxMian {
+    width: 91.4vw;
+  }
+  body .blindBox  .blindBoxItem {
+    width: 91.4vw;
+    height: 51.4vw;
+    margin-right: 0;
+    margin-bottom: 0;
+    background-repeat: no-repeat;
+  }
+  body .blindBox  .blindBoxItem .box {
+    width: 28.5vw;
+    height: 26.4vw;
+    margin: 0 10.6vw 0 7.2vw;
+  }
+  body .blindBox  .box_right .name {
+    margin-top: 12.8vw;
+    font-size: 4.2vw;
+    font-weight: bold;
+    color: #ffffff;
+  }
+  body .blindBox .box_right .buyNum {
+    margin-top: 3vw;
+    font-size: 3.2vw;
+  }
+
+  body .blindBox .Price {
+    margin-top: 4.2vw;
+    font-size: 6.4vw;
+  }
+  .buyBtn {
+    width: 121px;
+    height: 27px;
+    line-height: 27px;
+    margin-top: 18px;
+    background: #a5b2c5;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #333333;
+    display: flex;
+    align-items: center;
+  }
+  .buyBtn span {
+   height: 100%;
+   flex: 1;
+   text-align: center;
+   border-right: 1px solid #3a424b;
+  }
+  .buyBtn img {
+   width: 20px;
+   height: 20px;
+   margin: 0 7px;
+  }
+}

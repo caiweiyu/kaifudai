@@ -1,0 +1,84 @@
+@media only screen and (max-width: 780px) {
+  #bindBoxInfo {
+    width: 100vw;
+  }
+
+  #bindBoxInfo .top {
+    display: block;
+  }
+
+  #bindBoxInfo .boxImg {
+    width     : 100vw;
+    background: none;
+  }
+
+  #bindBoxInfo .boxInfo {
+    width        : 100vw;
+    height       : auto;
+    border-radius: 6.4vw 6.4vw 0 0;
+    padding      : 16.8vw 4.2vw 5.3vw;
+    border-bottom: 1.6vw solid #eee;
+  }
+
+  #bindBoxInfo .boxInfo button {
+    /* display: none; */
+  }
+
+  #bindBoxInfo .prise {
+    font-size: 6.4vw;
+  }
+
+  #bindBoxInfo .prise span {
+    font-size: 3.2vw;
+  }
+
+  #bindBoxInfo .name {
+    font-size : 4.2vw;
+    margin-top: 5vw;
+  }
+
+  #bindBoxInfo .tip {
+    font-size: 3.4vw;
+  }
+
+  #bindBoxInfo .buyHistory {
+    font-size: 3.2vw;
+  }
+
+  #bindBoxInfo .buyHistory .item {
+    margin-right: 15vw;
+  }
+
+  #bindBoxInfo .details {
+    margin       : 0;
+    width        : 100vw;
+    border-radius: 0;
+    padding      : 5.3vw 0 15vw;
+  }
+
+  #bindBoxInfo .title1 {
+    width: auto;
+  }
+
+  #bindBoxInfo .detailsImg {
+    width : 100vw;
+    margin: 4vw 0 6vw;
+  }
+
+  #bindBoxInfo .details_bottom {
+    padding   : 0 4.2vw;
+    box-sizing: border-box;
+  }
+
+  #bindBoxInfo .details button {
+    display: block;
+    margin-top   : 8.2vw;
+    width        : 91.5vw;
+    height       : 11.7vw;
+    font-weight  : bold;
+    color        : #2C7ACF;
+    font-size    : 4.2vw;
+    background   : linear-gradient(90deg, #A1C4FD, #C2E9FB);
+    border-radius: 8px;
+  }
+}

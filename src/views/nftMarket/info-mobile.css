@@ -1,0 +1,130 @@
+@media only screen and (max-width: 780px) {
+  body .nftMarket-info {
+    width: 100vw;
+    overflow: hidden;
+    margin: 0 ;
+    color: #333333;
+  }
+  body .nftMarket-info .info_top {
+    display: block;
+  }
+  body .nftMarket-info .info_top .info_imgBox {
+    background: none;
+    width: 100vw;
+    height: 66vw;
+  }
+  body .nftMarket-info .info_top .info_right {
+    width: 100vw;
+    border-radius: 6.4vw 6.4vw 0px 0px;
+    padding: 0 4.2vw;
+  }
+  .nftMarket-info .info_top .info_right .shareIcon {
+    width: 5.8vw;
+    height: 5.8vw;
+    top: 6.4vw;
+    right: 6.4vw;
+  }
+  body .nftMarket-info .info_top .info_right .name {
+    font-size: 4.2vw;
+    margin-top: 8.5vw;
+  }
+  body .nftMarket-info .info_top .info_right .countDown {
+    width: 300px;
+    height: 19.2vw;
+    background-color: #dfeeff;
+    margin-top: 6.9vw;
+  }
+  body .nftMarket-info .info_top .info_right .price {
+    margin: 5.6vw 0;
+  }
+  body .nftMarket-info .info_top .info_right .price .priceItem span {
+    font-size: 3.4vw;
+  }
+  body .nftMarket-info .info_top .info_right .price .priceItem strong {
+    font-size: 5.3vw;
+    margin-top: 2.6vw;
+  }
+  body .nftMarket-info .info_top .info_right_item {
+    margin-bottom: 2.9vw;
+  }
+  body .nftMarket-info .info_top .info_right_item p {
+    font-size: 3.46vw;
+  }
+  body .nftMarket-info .info_top .info_right .lastPrice {
+    font-size: 3.46vw;
+    margin-bottom: 2.1vw;
+  }
+  body .nftMarket-info .info_top .info_right .btn {
+    width: 91.5vw;
+    height: 11.7vw;
+    line-height: 11.7vw;
+    border-radius: 2vw;
+    font-size: 4.2vw;
+  }
+  body .nftMarket-info .info2 {
+    width: 100vw;
+    height: 45.8vw;
+    border-radius: 0px;
+    margin-top: 2vw;
+    /* display: block; */
+    padding: 3vw 4.2vw;
+  }
+  body .nftMarket-info .info2::after {
+    display: none;
+  }
+  body .nftMarket-info .info2 .info2_item {
+    width: 100%;
+    justify-content: space-between;
+    padding: 0;
+    font-size: 14px;
+    align-items: center;
+  }
+  body .nftMarket-info .info2 .info2_item p:nth-child(1) {
+    font-size: 3.4vw;
+    font-family: Microsoft YaHei;
+    color: #666666;
+  }
+  body .nftMarket-info .info2 .info2_item p:nth-child(2) {
+    font-size: 3.4vw;
+    font-family: Microsoft YaHei;
+    font-weight: 400;
+    color: #000000;
+  }
+  body .nftMarket-info .AuctionHistory {
+    width: 100vw;
+    margin-top: 2vw;
+    border-radius: 0;
+    padding: 0 4.2vw;
+    padding-top: 5vw;
+  }
+  body .nftMarket-info .AuctionHistory .title span {
+    font-size: 4vw;
+  }
+  body .nftMarket-info .AuctionHistory .title p {
+    font-size: 3.2;
+    color: #999999;
+  }
+  body .nftMarket-info .AuctionHistory .hide {
+    display: none !important;
+    opacity: 0;
+    background-color: red;
+    border: 10px solid red;
+  }
+  body .nftMarket-info .tip {
+    display: block;
+    background-color: #fff;
+    width: 100vw;
+    margin-top: 2vw;
+    padding:  4.8vw;
+    
+    box-sizing: border-box;
+    font-size: 3.2vw;
+    color: #666666;
+  }
+  body .nftMarket-info .tip .title {
+    font-size: 4vw;
+    font-weight: bold;
+    color: #333333;
+    margin-bottom: 3.7vw;
+  }
+}

@@ -1,0 +1,21 @@
+@media only screen and (max-width: 780px) {
+    #PrivateEquityBox {
+        width     :95vw;
+        padding   : 3vw 0;
+        box-sizing: border-box;
+        display   : block;
+        margin: 0 auto;
+
+        .mianRight,
+        .mianLeft {
+            width        : 100%;
+            border-radius: 12px;
+            .item {
+                height: 79px;
+            }
+        }
+        .mianRight {
+            margin-top: 20px;
+        }
+    }
+}
