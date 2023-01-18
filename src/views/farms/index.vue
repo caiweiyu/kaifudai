@@ -325,7 +325,7 @@ export default {
     //兑换
     ExchangeBUY() {
       if (this.cbb_input != "") {
-        this.ExchangeBUY2ABI(this.cbb_input)
+        this.ExchangeBUY2ABI(this.cbb_input,this.Enterone)
       }
     },
   },

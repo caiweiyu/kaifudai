@@ -39,6 +39,26 @@ import sake_addr from "@/abi/sake_addr.json"
 
 import buycbbtest from "@/abi/buycbbtest.json"
 
+//new_cbb_json
+import new_cbb_json from "@/abi/new_cbb.json"
+
+//流动性json
+import liudonxing_json from "@/abi/liudonxing.json"
+
+//质押json
+import zhiya_json from "@/abi/zhiya_json.json"
+
+//质押2
+import zhiyalast from "@/abi/zhiyalast.json"
+
+//质押主网
+import network_pledge from "@/abi/network_pledge.json"
+
+//lp质押
+import lptoken_json from "@/abi/lptoken_json.json"
+
+//添加流动性
+import add_liquidity_json from "@/abi/add_liquidity_json.json"
 import { Toast } from 'vant';
 Vue.use(Toast);
 export default {
@@ -113,6 +133,9 @@ export default {
     var lpsakeabi_addr = '0x596a78BDA9830e0ED05f1e4E4Ce0Fbf381ce5ef0'
     var lpsakeabi_addr2 = '0x0D079A713a6eE5D713368eA23036Fa4702A2242C'
 
+    //添加流动性
+    var add_liquidity = '0x0D079A713a6eE5D713368eA23036Fa4702A2242C'
+
     // usdt_approve_addr
     var usdt_approve_addr = '0x9f37055A4BA925E0678E7447e2164CD833bf3F18'
     // cbb_approve_addr
@@ -125,9 +148,21 @@ export default {
     //cbb测试网授权
     var ceshicbb_appr = '0x31a7528b09d9f194eeaE2d89594735A6900d00D5';
 
+    var new_cbb_appr = '0x2971946623E33c71824a7070c9842C86b9D6d904';
+
     //usdt测试网授权
     var ceshiusdt_appr = '0x9f37055A4BA925E0678E7447e2164CD833bf3F18';
 
+    //添加流动性
+    var liudonxing = '0xCCA2ca8D1D743A335e1a171855E94f6E65d8CaC4'
+
+    //质押
+    var zhiya = '0x86F53AF8F2431Cf687853b843e3B73583CA6a3f2'
+
+    var zhiyalast_appr = '0x4A5Ec26489497D3f79235540d50850cEB1F80dDa'
+
+    //质押主网
+    var network_pledge_appr = "0xCc80D6dB0DEAB7790268831fd96A8D4Fb635E27A"
     var PoolIndex = 0;//池索引
     var PoolData = [];//池数据
 
@@ -382,22 +417,86 @@ export default {
     };
     //质押 usdt+cbb 流动性
     Vue.prototype.lpSake = async function (data){
+      let val = (data * '1000000000000000000').toLocaleString('fullwide', {useGrouping:false});
+      console.log('val=',val)
+      let lptoken2 = '0x51067c60fEa3bF4CDC9956b107cBC83554496F0d'
       try {
-        console.log('data=',data)
-        var Contract1 = new web3.eth.Contract(balance_usdt, ceshiusdt_appr);
-        var Contract2 = new web3.eth.Contract(ceshicbb, ceshicbb_appr);
-        var Contract3 = new web3.eth.Contract(lpsakeabi, lpsakeabi_addr2);
-        var Contract4 = new web3.eth.Contract(sake_addr, sake_addr_appr); 
-        let res = await Contract1.methods.approve(lpsakeabi_addr2,'100000000000000000000000000000000000000000000000000000000').send({ from: WalletAddress });
-        let res2 = await Contract2.methods.approve(lpsakeabi_addr2,'100000000000000000000000000000000000000000000000000000000').send({ from: WalletAddress });
-        let res3 = await Contract3.methods.addLiquidity(usdt_approve_addr,ceshicbb_appr,data,data).send({ from: WalletAddress });
-        console.log(res,res2,res3,'====')
-        await Contract4.methods.stake(data).call().then(function(res){
-          console.log('res=',res)
-        })
+          var usdt = new web3.eth.Contract(balance_usdt, ceshiusdt_appr);
+          var cbb_str = new web3.eth.Contract(new_cbb_json, new_cbb_appr);
+          var zhiyalast2 = new web3.eth.Contract(zhiyalast, zhiyalast_appr);
+          var Contract3 = new web3.eth.Contract(add_liquidity_json, add_liquidity);
+          var Contract4 = new web3.eth.Contract(network_pledge, network_pledge_appr);
+          var Contract5 = new web3.eth.Contract(lptoken_json,lptoken2);
+          //测试网质押v1.0
+          // await usdt.methods.approve(zhiyalast_appr,'100000000000000000000000000000000000000000000000000000000').send({ from: WalletAddress }).then(result1=>{
+          //   console.log(1,result1)
+          //    zhiyalast2.methods.stake(val).send({from: WalletAddress}).then((results)=>{
+          //     console.log('results=',results)
+          //     if(results.status){
+          //       this.$message.success('pledge success')
+          //     }
+          //    })
+          // });
+          Toast.loading({
+            // message: '加载中...',
+            forbidClick: true,
+            duration: 1,
+          });
+          await usdt.methods.approve(new_cbb_appr,'100000000000000000000000000000000000000000000000000000000').send({ from: WalletAddress }).then(result1=>{
+            console.log('result1=',result1)
+            if(result1.status){
+              cbb_str.methods.approve(new_cbb_appr,'100000000000000000000000000000000000000000000000000000000').send({from: WalletAddress}).then((result2)=>{
+                console.log('result2=',result2)
+                  if(result2.status){
+                    cbb_str.methods.addLiquidity(ceshiusdt_appr,new_cbb_appr,val,val).send({ from: WalletAddress }).then(results=>{
+                        console.log('results=',results);
+                        if(results.status){
+                          Contract5.methods.approve(network_pledge_appr,val).send({from: WalletAddress}).then(ret=>{
+                            console.log('ret=',ret)
+                            if(ret.status){
+                              Contract4.methods.deposit(0,val).send({ from: WalletAddress }).then(response=>{
+                                console.log('response=',response)
+                                if(response.status){
+                                  Toast.loading({
+                                    // message: '加载中...',
+                                    forbidClick: true,
+                                    duration: 1,
+                                  });
+                                }
+                              })
+                            }
+                          })
+                        }
+                      })
+                   }
+               })
+            }
+          });
+          // await cbb.methods.approve(liudonxing,'100000000000000000000000000000000000000000000000000000000').send({ from: WalletAddress }).then(result2=>{
+          //   console.log(2,result2)
+          // })
         }catch (error) {
-          console.log('error=',error)
+          Toast.loading({
+            // message: '加载中...',
+            forbidClick: true,
+            duration: 1,
+          });
+          this.$message.error('error')
+          console.log('1error=',error)
         }
+        // try {
+          // var Contract3 = new web3.eth.Contract(liudonxing_json, liudonxing);
+          // var Contract4 = new web3.eth.Contract(zhiya_json, zhiya); 
+          // console.log(Contract3,'搜优质=',ceshiusdt_appr,new_cbb_appr,val,val)
+          // await Contract3.methods.addLiquidity(ceshiusdt_appr,new_cbb_appr,val,val).send({ from: WalletAddress }).then(results=>{
+          //    console.log('results=',results)
+          // })
+          // await Contract4.methods.add(50,new_cbb_appr,val,val).send({ from: WalletAddress })
+          // await Contract4.methods.updatePool(ceshiusdt_appr,new_cbb_appr,val,val).send({ from: WalletAddress })
+          // await Contract4.methods.deposit(ceshiusdt_appr,new_cbb_appr,val,val).send({ from: WalletAddress })
+        // } catch (error) {
+        //   console.log('2error=',error)
+        // }
     };
     //===========================
     //质押
@@ -645,32 +744,32 @@ export default {
     };
 
     // 兑换cbb
-    Vue.prototype.ExchangeBUY2ABI =async function(params){
-      console.log('params=',params,WalletAddress);
-      // let data = Number(params)
-      try {
-        var boxIndex = '100000000000000000000000000000000000000000000000000000000';
-        console.log('boxIndex=',boxIndex)
-        var Contract2 = new web3.eth.Contract(balance_usdt, ceshiusdt_appr);
-        let res = await Contract2.methods.approve(WalletAddress,boxIndex).send({ from: WalletAddress });
-      } catch (error) {
-        console.log('error=',error)
-        this.$message.error('请授权')
+    Vue.prototype.ExchangeBUY2ABI =async function(params,Enterone){
+      var boxIndex = '100000000000000000000000000000000000000000'//Math.ceil(Enterone);
+      let self = this;
+      console.log('boxIndex=',boxIndex,'new_cbb_appr=',new_cbb_appr)
+      var appr = new web3.eth.Contract(balance_usdt, ceshiusdt_appr);
+      var buy = new web3.eth.Contract(new_cbb_json,new_cbb_appr);
+      if (WalletAddress == '') {
+        console.log("请链接钱包")
+        return
       }
-      try {
-        console.log('ceshicbb_appr=',ceshicbb_appr)
-        var Contract4 = new web3.eth.Contract(buycbbtest,ceshicbb_appr);
-        // console.log('111=',Contract4)
-        // await Contract4.methods.buyTokens(WalletAddress,params).call().then((res)=>{
-        //   console.log('res2=',res)
-        // });
-        let res = await Contract4.methods.buyTokens(WalletAddress,params).send({ from: WalletAddress });
-        console.log('res=',res)
-      } catch (error) {
-        console.log('error2=',error)
-        this.$message.error('购买失败')
-      }
-      
+      appr.methods.approve(new_cbb_appr,boxIndex).send({ from: WalletAddress }).then(res=>{
+        if(res.status){
+          try {
+            buy.methods.buyTokens(WalletAddress,params).send({ from: WalletAddress }).then(ret=>{
+              if(ret.status){
+                this.$message.success('buy success')
+                self.CbbABI();
+                self.testUsdtABI();
+              }
+            })
+          } catch (error) {
+            console.log('error2=',error)
+            this.$message.error('buy error')
+          }
+        }
+      })
     }
     // 兑换
     Vue.prototype.ExchangeBUYABI = function (Enterone) {
@@ -876,7 +975,7 @@ export default {
     Vue.prototype.CbbABI =async function (e) {
       console.log('触发cbb合约')
       try {
-        var Contract3 = new web3.eth.Contract(ceshicbb, ceshicbb_appr);
+        var Contract3 = new web3.eth.Contract(new_cbb_json, new_cbb_appr);
         let a1 = await Contract3.methods.balanceOf(WalletAddress).call().then(function(res){
             return res
         })
@@ -914,7 +1013,7 @@ export default {
     Vue.prototype.testCbbprice =async function (e) {
       console.log('触发cbb-price')
       try {
-        var Contract4 = new web3.eth.Contract(ceshicbb, ceshicbb_appr);
+        var Contract4 = new web3.eth.Contract(new_cbb_json, new_cbb_appr);
         let b4 = await Contract4.methods.price().call().then(function(res){
             return res
         });

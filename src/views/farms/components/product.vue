@@ -53,6 +53,7 @@
       <p class="pledge-num">{{ itemData.Myinformation[0].amount }}</p>
       <div class="hr"></div>
       <!-- <div class="calculatedForce">质押获取的算力： 56.03</div> -->
+      <!-- <div class="redeem2" @click="liquidity()">liquidity</div> -->
       <div class="redeem" @click="Topledge()">
         pledge
       </div>
@@ -102,6 +103,9 @@ export default {
   methods: {
     open() {
       this.isOpen = !this.isOpen;
+    },
+    liquidity(){
+      console.log('添加流动性')
     },
     Topledge() {
       console.log(this.PledgeAmount);
@@ -406,6 +410,21 @@ window.open(href, '_blank');
   font-size: 12px;
   font-weight: 400;
   color: #999999;
+}
+.redeem2 {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  height: 28px;
+  padding: 0 5px;
+  line-height: 28px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  color: #1a63da;
+  cursor: pointer;
+  background: linear-gradient(180deg, #a1c4fd, #ceedfc);
+  border-radius: 14px;
 }
 .redeem {
   position: absolute;
