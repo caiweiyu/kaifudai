@@ -50,19 +50,24 @@
         <!-- 已经质押 -->
         Have pledged
       </div>
-      <p class="pledge-num">{{ itemData.Myinformation[0].amount }}</p>
+      <!-- <p class="pledge-num">{{ itemData.Myinformation[0].amount }}</p> -->
+      <p class="pledge-num">{{bnb_pledges}}</p>
       <div class="hr"></div>
       <!-- <div class="calculatedForce">质押获取的算力： 56.03</div> -->
       <!-- <div class="redeem2" @click="liquidity()">liquidity</div> -->
       <div class="redeem" @click="Topledge()">
         pledge
       </div>
+      <!-- <div class="redeem2" @click="unTopledge()">
+        unpledge
+      </div> -->
     </div>
     <!-- 余额 -->
     <div class="balance">
       <input type="text" v-model="PledgeAmount" placeholder="Please enter quantity" />
       <div class="hr"></div>
-      <div class="balanceNum">balance：{{ itemData.TokenBalance[0] }}</div>
+      <!-- <div class="balanceNum">balance：{{ itemData.TokenBalance[0] }}</div> -->
+      <div class="balanceNum">balance：{{bnb_balance}}</div>
       <div class="balanceTip">
         <!-- 余额不足？添加流动性 -->
         Insufficient balance? Add liquidity
@@ -98,7 +103,15 @@ export default {
     return {
       isOpen: false,
       PledgeAmount: 0, //= =！！ 没注意
+      bnb_balance:0,   //测试网bnb余额
+      bnb_pledges:0    //测试网已质押bnb数量
     };
+  },
+  mounted(){
+    // 查询bnb余额信息
+    this.getBlancebnb()
+    // 查询已质押bnb
+    this.getpledgesBlance()
   },
   methods: {
     open() {
@@ -107,10 +120,25 @@ export default {
     liquidity(){
       console.log('添加流动性')
     },
+    unTopledge(){
+      if (this.PledgeAmount == "") {
+        this.$message.error('Please enter quantity')
+        return;
+      }
+      if (this.PledgeAmount > this.bnb_balance){
+        this.$message.error('The amount unpledged cannot be greater than the Have pledged')
+        return;
+      }
+      this.unlpSakebnb(this.PledgeAmount)
+    },
     Topledge() {
       console.log(this.PledgeAmount);
       if (this.PledgeAmount == "") {
-        console.log("请质押");
+        this.$message.error('Please enter quantity')
+        return;
+      }
+      if (this.PledgeAmount > this.bnb_balance){
+        this.$message.error('The amount pledged cannot be greater than the balance')
         return;
       }
       // let data = {
@@ -120,7 +148,7 @@ export default {
       // };
       // console.log(data);
       // this.TopledgeABI(data);
-      this.lpSake(this.PledgeAmount)
+      this.lpSakebnb(this.PledgeAmount)
     },
 
     // 领取收益
@@ -413,8 +441,8 @@ window.open(href, '_blank');
 }
 .redeem2 {
   position: absolute;
-  right: 10px;
-  bottom: 10px;
+  right: 80px;
+  bottom: 0px;
   height: 28px;
   padding: 0 5px;
   line-height: 28px;

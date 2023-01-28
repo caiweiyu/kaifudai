@@ -59,6 +59,10 @@ import lptoken_json from "@/abi/lptoken_json.json"
 
 //添加流动性
 import add_liquidity_json from "@/abi/add_liquidity_json.json"
+
+//质押bnb合约
+import pledges_bnb_abi from "@/abi/pledges_bnb.json"
+
 import { Toast } from 'vant';
 Vue.use(Toast);
 export default {
@@ -163,6 +167,13 @@ export default {
 
     //质押主网
     var network_pledge_appr = "0xCc80D6dB0DEAB7790268831fd96A8D4Fb635E27A"
+
+    //查询代币信息
+    var currentAccount = '0x8aD74c21838872338179498524cE2f4Cb4889C48'
+
+    //质押bnb合约地址
+    var pledges_bnb_addr = '0x375EE439CA4B69907522c5fe143727Fc1b1Ce765'
+
     var PoolIndex = 0;//池索引
     var PoolData = [];//池数据
 
@@ -260,7 +271,21 @@ export default {
       }
     };
 
+    //===========================
+    //查询bnb余额
+    Vue.prototype.getBlancebnb = function (){
+      web3.eth.getBalance(currentAccount).then(res=>{
+        this.bnb_balance = res/Math.pow(10,18)
+      });  
+    }
 
+    //查询已质押的bnb
+    Vue.prototype.getpledgesBlance = function (){
+      var getpledgesAbi = new web3.eth.Contract(pledges_bnb_abi, pledges_bnb_addr)
+      getpledgesAbi.methods.pledges(WalletAddress).call().then(res=>{
+        this.bnb_pledges = res/Math.pow(10,18)
+      });  
+    }
     //===========================
     //检查用户是否注册
     //===========================
@@ -415,6 +440,39 @@ export default {
       }
 
     };
+    //质押 bnb 
+    Vue.prototype.lpSakebnb = async function(data){
+      let self = this;
+      var setpledgesAbi = new web3.eth.Contract(pledges_bnb_abi, pledges_bnb_addr)
+      try {
+        var item=web3.utils.toWei(data, 'ether');
+        setpledgesAbi.methods.pledge().send({ from: WalletAddress,value:item }).then(results=>{
+          this.$message.success('pledge success');
+          self.getBlancebnb();
+          self.getpledgesBlance();
+        })
+      } catch (error) {
+        this.$message.error('pledge error')
+        console.log('error=',error)
+      }
+    }
+    //解除质押 bnb
+    Vue.prototype.unlpSakebnb = async function(data){
+      let self = this;
+      var setpledgesAbi = new web3.eth.Contract(pledges_bnb_abi, pledges_bnb_addr)
+      try {
+        // var item=web3.utils.toWei(data, 'ether');
+        setpledgesAbi.methods.unpledge(data).send({from:WalletAddress}).then(results=>{
+          console.log('错误=',results)
+          this.$message.success('unpledge success');
+          self.getBlancebnb();
+          self.getpledgesBlance();
+        })
+      } catch (error) {
+        this.$message.error('unpledge error')
+        console.log('error=',error)
+      }
+    }
     //质押 usdt+cbb 流动性
     Vue.prototype.lpSake = async function (data){
       let val = (data * '1000000000000000000').toLocaleString('fullwide', {useGrouping:false});
