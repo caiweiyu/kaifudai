@@ -225,7 +225,7 @@ export default {
               },
               // rpcUrls: ['https://bsc-dataseed.binance.org/'],
               // blockExplorerUrls: ['https://bscscan.com']
-              rpcUrls: ['https://data-seed-prebsc-2-s3.binance.org:8545'],
+              rpcUrls: ['https://data-seed-prebsc-2-s3.binance.org:8545','https://data-seed-prebsc-1-s2.binance.org:8545'],
               blockExplorerUrls: ['https://testnet.bscscan.com/']
             }]
             ethereum.request({ method: "wallet_addEthereumChain", params: data, }).then((result) => {
